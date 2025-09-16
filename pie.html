@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Circular Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .circle {
+            position: relative;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+        }
+
+        .segment {
+            position: absolute;
+            width: 160px;
+            height: 160px;
+            border-radius: 90% 0% 0% 0%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .segment:hover {
+            transform: scale(1.1);
+            z-index: 20;
+        }
+
+        /* Positioning around the circle */
+        .top-left {
+            top: 17%;
+            left: 19%;
+            background: #34d399;
+            rotate: 0deg;
+        }
+
+        /* green */
+        .top-right {
+            top: 17%;
+            right: 21%;
+            background: #3b82f6;
+            rotate: 90deg;
+        }
+
+        /* blue */
+        .right {
+            rotate: 136deg;
+            top: 36%;
+            right: 10%;
+            background: #38bdf8;
+            box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.616);
+            z-index: 1;
+        }
+
+        /* sky */
+        .bottom-right {
+            bottom: 20%;
+            right: 20%;
+            background: #06b6d4;
+            rotate: 179deg;
+        }
+
+        /* cyan */
+        .bottom-left {
+            bottom: 20%;
+            left: 19%;
+            background: #6366f1;
+            rotate: 270deg;
+        }
+
+        /* indigo */
+        .left {
+            top: 35%;
+            left: 8%;
+            background: #84cc16;
+            rotate: -44deg;
+            box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.616);
+        }
+
+        /* lime */
+
+        /* Media Queries for Responsive Design */
+        @media (max-width: 640px) {
+            .circle {
+                width: 300px;
+                height: 300px;
+            }
+
+            .segment {
+                width: 80px;
+                height: 80px;
+                font-size: 1.2rem;
+            }
+
+            .segment span {
+                font-size: 1.5rem !important;
+            }
+
+            .absolute.w-48.h-48 {
+                width: 100px;
+                height: 100px;
+            }
+
+            .absolute.w-48.h-48 h2 {
+                font-size: 13px;
+            }
+
+            .absolute.w-48.h-48 p {
+                font-size: 0.6rem;
+            }
+
+            .top-left {
+                top: 18%;
+                left: 15%;
+            }
+
+            .top-right {
+                top: 18%;
+                right: 15%;
+            }
+
+            .right {
+                top: 35%;
+                right: 5%;
+            }
+
+            .bottom-right {
+                bottom: 21%;
+                right: 15%;
+            }
+
+            .bottom-left {
+                bottom: 21%;
+                left: 15%;
+            }
+
+            .left {
+                top: 35%;
+                left: 5%;
+            }
+        }
+
+        @media (min-width: 641px) and (max-width: 1024px) {
+            .circle {
+                width: 450px;
+                height: 450px;
+            }
+
+            .segment {
+                width: 120px;
+                height: 120px;
+                font-size: 1.5rem;
+            }
+
+            .segment span {
+                font-size: 2rem !important;
+            }
+
+            .absolute.w-48.h-48 {
+                width: 140px;
+                height: 140px;
+            }
+
+            .absolute.w-48.h-48 h2 {
+                font-size: 1.5rem;
+            }
+
+            .absolute.w-48.h-48 p {
+                font-size: 0.8rem;
+            }
+
+            .top-left {
+                top: 15%;
+                left: 17%;
+            }
+
+            .top-right {
+                top: 15%;
+                right: 17%;
+            }
+
+            .right {
+                top: 35%;
+                right: 8%;
+            }
+
+            .bottom-right {
+                bottom: 15%;
+                right: 17%;
+            }
+
+            .bottom-left {
+                bottom: 15%;
+                left: 17%;
+            }
+
+            .left {
+                top: 35%;
+                left: 6%;
+            }
+        }
+
+        /* Arrow positions */
+        .top-left .arrow-text {
+            top: 23%;
+            left: -118px;
+            transform: translateY(-50%);
+            flex-direction: row-reverse;
+        }
+
+        .top-right .arrow-text {
+            top: -33%;
+            right: 36px;
+            transform: translateY(-50%);
+            rotate: -91deg;
+        }
+
+        .right .arrow-text {
+            top: -38%;
+            right: 90px;
+            transform: translateY(-61%);
+            rotate: -136deg
+        }
+
+        .bottom-right .arrow-text {
+            bottom: 110px;
+            right: 120px;
+            rotate: 181deg;
+        }
+
+        .bottom-left .arrow-text {
+            bottom: 169px;
+            left: -44px;
+            flex-direction: row-reverse;
+            rotate: 90deg;
+        }
+
+        .left .arrow-text {
+            top: -12%;
+            transform: translateY(-9%);
+            flex-direction: row-reverse;
+            rotate: 44deg;
+            right: 116px;
+        }
+
+        /* Arrow + Text */
+        .arrow-text {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .arrow-text .line {
+            width: 40px;
+            height: 2px;
+            background: #1e3a8a;
+            position: relative;
+        }
+
+        .arrow-text .line::after {
+            content: "";
+            position: absolute;
+            right: 34px;
+            top: 98%;
+            transform: translateY(-50%) rotate(55deg);
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+            border-left: 8px solid #1e3a8a;
+        }
+
+        .arrow-text .text h3 {
+            margin: 0;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .arrow-text .text p {
+            margin: 0;
+            font-size: 0.75rem;
+            color: #3b82f6;
+        }
+    </style>
+</head>
+
+<body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="circle flex items-center justify-center">
+        <!-- Center Circle -->
+        <div
+            class="absolute w-48 h-48 bg-white rounded-full shadow-xl flex flex-col items-center justify-center text-center z-50  pulse-animation ">
+            <h2 class="text-2xl font-bold">Upodhoukon</h2>
+            <p class="text-gray-500 text-sm">Your Company</p>
+        </div>
+
+        <!-- Segments -->
+        <div class="segment top-left">
+            <span class="text-4xl">🚀</span>
+            <div class="arrow-text">
+                <div class="line"></div>
+                <div class="text">
+                    <h3>EXERCITATION</h3>
+                    <p>INFOGRAPHIC</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="segment top-right">
+            <span class="text-4xl">📦</span>
+            <div class="arrow-text">
+                <div class="line"></div>
+                <div class="text">
+                    <h3>PACKAGING</h3>
+                    <p>INFOGRAPHIC</p>
+                </div>
+            </div>
+        </div>
+        <div class="segment right">
+            <span class="text-4xl">📡</span>
+            <div class="arrow-text">
+                <div class="line"></div>
+                <div class="text">
+                    <h3>CONNECTIVITY</h3>
+                    <p>INFOGRAPHIC</p>
+                </div>
+            </div>
+        </div>
+        <div class="segment bottom-right">
+            <span class="text-4xl">🚀</span>
+            <div class="arrow-text">
+                <div class="line"></div>
+                <div class="text">
+                    <h3>GROWTH</h3>
+                    <p>INFOGRAPHIC</p>
+                </div>
+            </div>
+        </div>
+        <div class="segment bottom-left">
+            <span class="text-4xl  rotate-[100deg]">🏃</span>
+            <div class="arrow-text">
+                <div class="line"></div>
+                <div class="text">
+                    <h3>PERFORMANCE</h3>
+                    <p>INFOGRAPHIC</p>
+                </div>
+            </div>
+        </div>
+        <div class="segment left">
+            <span class="text-4xl rotate-[45deg]">👤</span>
+            <div class="arrow-text">
+                <div class="line"></div>
+                <div class="text">
+                    <h3>USERS</h3>
+                    <p>INFOGRAPHIC</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
