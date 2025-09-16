@@ -95,9 +95,12 @@
     #pie>* {
       margin: 0 auto;
     }
+
+    /* Adjust contact-us section to account for fixed navbar */
+    #contact-us {
+      padding-top: 70px; /* Adjust based on navbar height */
+    }
   </style>
-
-
 </head>
 
 <body class="homepage">
@@ -255,7 +258,7 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link" href="index.html">Home <span class="sr-only"></a>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Contact</a>
+                  <a class="nav-link" href="#contact-us">Contact</a>
                 </li>
               </ul>
             </div>
@@ -334,7 +337,6 @@
     </div>
   </section>
 
-
   <section class="pie-section py-5">
     <div class="container">
       <div id="pie" class="d-flex justify-content-center align-items-center"></div>
@@ -386,7 +388,6 @@
       </div>
     </div>
   </section>
-
 
   <section class="collection bg-light position-relative py-5">
     <div class="container">
@@ -601,7 +602,7 @@
     <div class="testimonial-swiper-pagination d-flex justify-content-center mb-5"></div>
   </section>
 
-  <section class="contact-us position-relative" style="background: url('images/pattern-bg.png') no-repeat center center/cover;
+  <section id="contact-us" class="contact-us position-relative" style="background: url('images/pattern-bg.png') no-repeat center center/cover;
      background-color: #f9f9f9; margin-bottom: 50px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
     <div class="container py-5">
       <div class="row align-items-center">
@@ -666,7 +667,6 @@
       </div>
     </div>
   </section>
-
 
   <section class="instagram">
     <!-- Follow Button -->
@@ -766,7 +766,7 @@
               <li class="mb-2"><a href="index.html" class="footer-link">About</a></li>
               <li class="mb-2"><a href="blog.html" class="footer-link">Services</a></li>
               <li class="mb-2"><a href="styles.html" class="footer-link">Single Item</a></li>
-              <li><a href="#" class="footer-link">Contact</a></li>
+              <li><a href="#contact-us" class="footer-link">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -776,7 +776,7 @@
           <div class="footer-menu">
             <h5 class="text-uppercase fw-bold mb-4">Help & Info</h5>
             <ul class="list-unstyled">
-              <li class="mb-2"><a href="index.html" class="footer-link">Contact Us</a></li>
+              <li class="mb-2"><a href="#contact-us" class="footer-link">Contact Us</a></li>
             </ul>
           </div>
         </div>
@@ -916,6 +916,34 @@
       }
     });
 
+    // Smooth scrolling for nav links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const navbarHeight = document.querySelector('.navbar').offsetHeight;
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+
+          // Close the offcanvas menu if open
+          const offcanvas = document.querySelector('.offcanvas.show');
+          if (offcanvas) {
+            const bsOffcanvas = bootstrap.Offcanvas.getInstance(offcanvas);
+            if (bsOffcanvas) {
+              bsOffcanvas.hide();
+            }
+          }
+        }
+      });
+    });
+
     fetch("pie.html")
       .then(res => res.text())
       .then(data => {
@@ -929,9 +957,7 @@
           });
         });
       });
-
   </script>
-
 
   <script src="js/jquery.min.js"></script>
   <script src="js/plugins.js"></script>
