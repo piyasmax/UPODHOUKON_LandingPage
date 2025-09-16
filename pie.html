@@ -289,6 +289,63 @@
             font-size: 0.75rem;
             color: #3b82f6;
         }
+
+        /* 📱 Mobile adjustments for arrow-text */
+        @media (max-width: 480px) {
+            .arrow-text {
+                gap: 4px;
+            }
+
+            .arrow-text .line {
+                width: 20px;
+            }
+
+            .arrow-text .text h3 {
+                font-size: 0.65rem;
+            }
+
+            .arrow-text .text p {
+                font-size: 0.55rem;
+            }
+
+            /* Reposition closer for each segment */
+            .top-left .arrow-text {
+                top: 10%;
+                left: -77px;
+                transform: translateY(-50%);
+            }
+
+            .top-right .arrow-text {
+                top: -59%;
+                right: 18px;
+                rotate: -90deg;
+            }
+
+            .right .arrow-text {
+                top: -54%;
+                right: -17px;
+                rotate: -136deg;
+                transform: translateY(-51px);
+            }
+
+            .bottom-right .arrow-text {
+                bottom: 63px;
+                right: 67px;
+                rotate: 180deg;
+            }
+
+            .bottom-left .arrow-text {
+                bottom: 104px;
+                left: -42px;
+                rotate: 90deg;
+            }
+
+            .left .arrow-text {
+                top: -5%;
+                right: 40px;
+                rotate: 45deg;
+            }
+        }
     </style>
 </head>
 
