@@ -170,6 +170,53 @@
       width: 40px;
       height: auto;
     }
+
+    /* ✅ Mobile View Adjustments */
+    @media (max-width: 768px) {
+
+      .process-line,
+      .plane-icon {
+        display: none !important;
+        /* hide airplane & line */
+      }
+
+      .d-flex.justify-content-between.align-items-center.position-relative {
+        flex-direction: column;
+        /* stack steps */
+        gap: 2rem;
+        /* spacing between cards */
+      }
+
+      .process-card {
+        width: 76%;
+        max-width: 420px;
+        height: 282px;
+        border-radius: full;
+        padding: 20px;
+      }
+
+      .step-number {
+        top: 10px;
+        right: 10px;
+      }
+
+      .step-number {
+        position: absolute;
+        top: -1px;
+        right: 34px;
+        background: #ff4d2d;
+        color: #fff;
+        font-weight: bold;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        z-index: 3;
+      }
+    }
   </style>
 </head>
 
@@ -180,6 +227,11 @@
         <path fill="currentColor"
           d="M17.92 11.62a1 1 0 0 0-.21-.33l-5-5a1 1 0 0 0-1.42 1.42l3.3 3.29H7a1 1 0 0 0 0 2h7.59l-3.3 3.29a1 1 0 0 0 0 1.42a1 1 0 0 0 1.42 0l5-5a1 1 0 0 0 .21-.33a1 1 0 0 0 0-.76Z" />
       </symbol>
+      <symbol xmlns="http://www.w3.org/2000/svg" id="arrow-left" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="M17 11H9.41l3.3-3.29a1 1 0 1 0-1.42-1.42l-5 5a1 1 0 0 0-.21.33a1 1 0 0 0 0 .76a1 1 0 0 0 .21.33l5 5a1 1 0 0 0 1.42 0a1 1 0 0 0 0-1.42L9.41 13H17a1 1 0 0 0 0-2Z" />
+      </symbol>
+
       <symbol xmlns="http://www.w3.org/2000/svg" id="play" viewBox="0 0 24 24">
         <g fill="none" fill-rule="evenodd">
           <path
@@ -192,17 +244,18 @@
   </svg>
 
   <div class="preloader text-white fs-6 text-uppercase overflow-hidden"></div>
-  <nav class="navbar navbar-expand-lg bg-light text-uppercase s-6 p-2 align-items-center fixed-top"
-    style="background: #9e7e3a !important; z-index: 1030;">
+  <nav class="navbar navbar-expand-lg bg-light text-uppercase fixed-top"
+    style="background:#68501f !important; z-index:1030; display:flex; align-items:center;">
     <div class="container-fluid">
-      <div class="row justify-content-between align-items-center w-100">
-
+      <div class="row justify-content-between align-items-center justify-center w-100">
+        <!-- Brand -->
         <div class="col-auto flex">
           <a class="navbar-brand text-white" href="index.html">
-            <text class="text-xl"><span class="text-warning font-semibold fs-4 ">U</span>podhoukon</text>
+            <span class="text-warning font-semibold fs-4">U</span>podhoukon
           </a>
         </div>
 
+        <!-- Menu -->
         <div class="col-auto">
           <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar">
@@ -215,11 +268,12 @@
               <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 gap-1 gap-md-5 pe-3">
-                <li class="nav-item dropdown">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only"></a>
+              <ul class="navbar-nav justify-content-end flex-grow-1 ">
                 <li class="nav-item">
-                  <a class="nav-link" href="#contact-us">Contact</a>
+                  <a class="nav-link text-white" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="index.html#contact-us">Contact</a>
                 </li>
               </ul>
             </div>
@@ -246,11 +300,11 @@
       <div class="mb-5">
         <span class="badge bg-light text-dark px-3 py-3">OUR VALUE</span>
         <h2 class="fw-bold mt-3">
-          <span class="text-danger">Process</span> <span class="text-dark">We Follow</span>
+          <span class="text-danger text-xl">The Values</span> <span class="text-dark text-xl">We Weave</span>
         </h2>
         <p class="text-muted">
-          Sint nascetur facere, delectus conubia consequuntur, nonummy distinctio!
-          Non officiis, id natus non nisi provident justo.
+          At Upodhoukon, we are not just creating clothes — we are weaving stories, reviving heritage, and passing down
+          the spirit of love and giving through every thread.
         </p>
       </div>
 
@@ -266,22 +320,25 @@
           <!-- Step 1 -->
           <div class="process-card">
             <div class="step-number">01</div>
-            <h4 class="fw-bold">Research Project</h4>
-            <p class="text-muted">Turpis wisi pede tempus assumenda pede quis ultricies dicta ipsa.</p>
+            <h4 class="fw-bold">Reviving Heritage</h4>
+            <p class="text-muted">Every weave, every motif, keeps alive Bengal’s textile legacy — needle by needle,
+              thread by thread.</p>
           </div>
 
           <!-- Step 2 -->
           <div class="process-card">
             <div class="step-number">02</div>
-            <h4 class="fw-bold">Evaluate Plans</h4>
-            <p class="text-muted">Turpis wisi pede tempus assumenda pede quis ultricies dicta ipsa.</p>
+            <h4 class="fw-bold">Conscious Fashion</h4>
+            <p class="text-muted">We honor craftsmen, respect the planet, and create fashion that sustains rather than
+              consumes.</p>
           </div>
 
-          <!-- Step 3 -->
+          <!-- Step 4 -->
           <div class="process-card">
             <div class="step-number">03</div>
-            <h4 class="fw-bold">Best Results</h4>
-            <p class="text-muted">Turpis wisi pede tempus assumenda pede quis ultricies dicta ipsa.</p>
+            <h4 class="fw-bold">Tradition Meets Trend</h4>
+            <p class="text-muted">Not just a brand — but custodians of heritage and storytellers in cloth, offering
+              gifts you can wear and share.</p>
           </div>
 
           <!-- Airplane -->
@@ -292,6 +349,7 @@
       </div>
     </div>
   </section>
+
 
 
   <section class="pie-section py-5" data-aos="fade-up">
@@ -309,7 +367,7 @@
           <div class="col-md-4">
             <div class="cat-item product-frame">
               <a href="index.html" class="d-block frame-wrapper">
-                <img src="images/img999.jpg" alt="categories" class="product-image img-fluid">
+                <img src="/images/new/new5.jpg" alt="categories" class="product-image img-fluid">
               </a>
               <div class="category-content text-center mt-3">
                 <a href="index.html" class="btn btn-dark text-uppercase px-4">Shop for men</a>
@@ -333,10 +391,10 @@
           <div class="col-md-4">
             <div class="cat-item product-frame">
               <a href="index.html" class="d-block frame-wrapper">
-                <img src="images/imgee88.jpg" alt="categories" class="product-image img-fluid">
+                <img src="images/ins/hand.jpg" alt="categories" class="product-image img-fluid">
               </a>
               <div class="category-content text-center mt-3">
-                <a href="index.html" class="btn btn-dark text-uppercase px-4">Shop accessories</a>
+                <a href="index.html" class="btn btn-dark text-uppercase px-4">Shop Handcraft</a>
               </div>
             </div>
           </div>
@@ -358,11 +416,13 @@
           <div class="col-md-6 column-container bg-white">
             <div class="collection-content p-5 m-0 m-md-5">
               <h3 class="element-title text-uppercase">About Us</h3>
-              <p>The Bengal Store celebrates Bengal’s rich heritage — from vibrant handwoven textiles and intricate
-                crafts to pure, chemical-free agro products. Rooted in all 23 districts, we bring the essence of rural
-                artistry and cultural pride. More than a store, we are a movement to preserve Bengal’s art, craft, and
-                cuisine. From Jamdani sarees to Gobindobhog rice and terracotta treasures, every product tells a story —
-                connecting you to Bengal’s soul while empowering its artisans, farmers, and craftsmen.</p>
+              <p>Upodhoukon (উপঢৌকন) is more than a name—it’s a symbol of love, respect, and culture passed down through
+                generations. In Bengal, Upodhoukon means a gift given with affection and honor. Every creation we
+                make—whether a drape, wrap, or wear close to the heart—carries that spirit of giving.
+
+                From scarves and sarees that hold ancestral charm to T-shirts that blend tradition with modernity, each
+                piece is woven not just from fabric, but from memory: the hum of looms, the flow of rivers, the colors
+                of festivals, and the timeless art of Bengal’s weavers.</p>
               <a href="./About.html" class="btn btn-dark text-uppercase mt-3">Explore This</a>
             </div>
           </div>
@@ -471,10 +531,10 @@
     <!-- Frames -->
     <div class="frames">
       <div class="frame">
-        <!-- <img src="https://via.placeholder.com/300x150" alt="Frame 1" /> -->
+        <img src="/images/new//WhatsApp Image 2025-09-18 at 22.03.26_c02e7689.jpg" alt="Frame 1" />
       </div>
       <div class="frame">
-        <!-- <img src="https://via.placeholder.com/300x150" alt="Frame 2" /> -->
+        <img src="/images/new/new3.jpg" alt="Frame 1" />
       </div>
     </div>
 
@@ -482,10 +542,10 @@
     <div class="text-container" data-aos="fade-up-left">
       <h2>Who we are</h2>
       <p class="quote-text">
-        We are a passionate team committed to delivering excellence. Our vision is to create innovative
-        solutions that empower businesses to thrive in a fast-paced world. With a focus on integrity,
-        creativity,
-        and collaboration, we strive to make a lasting impact in every project we undertake.
+        Upodhoukon (উপঢৌকন) is more than just a brand — it is a symbol of love, respect, and heritage. Rooted in Bengali
+        culture, every creation carries the spirit of giving, blending timeless tradition with modern style. We are not
+        just makers of fabrics, but keepers of stories woven through memories, festivals, and the artistry of Bengal’s
+        weavers.
       </p>
     </div>
   </div>
@@ -496,20 +556,21 @@
     <div class="text-container" data-aos="fade-up-left">
       <h2>What we do</h2>
       <p class="quote-text">
-        We are a passionate team committed to delivering excellence. Our vision is to create innovative
-        solutions that empower businesses to thrive in a fast-paced world. With a focus on integrity,
-        creativity,
-        and collaboration, we strive to make a lasting impact in every project we undertake.
+        At Upodhoukon, we do more than create fabrics — we create heartbeaters where every color holds a memory. A
+        scarf, a saree, or a T-shirt from us is not just fashion; it is a gift of inheritance, carrying the song of
+        tradition and the spirit of Bengal. Our work connects rivers, feasts, and fields, weaving ancestral charm into
+        modern style. Each piece we make is a breathable present — to be worn, treasured, and passed on. With us, you
+        don’t just choose clothing, you choose a story to wear, a culture to carry, and a legacy to gift.
       </p>
     </div>
 
     <!-- Frames -->
     <div class="frames">
       <div class="frame">
-        <!-- <img src="https://via.placeholder.com/300x150" alt="Frame 1" /> -->
+        <img src="/images/new/new1.jpg" alt="Frame 1" />
       </div>
       <div class="frame">
-        <!-- <img src="https://via.placeholder.com/300x150" alt="Frame 2" /> -->
+        <img src="/images/new/new2.jpg" alt="Frame 1" />
       </div>
     </div>
   </div>
@@ -681,7 +742,7 @@
         <div class="col-6 col-sm-4 col-md-2">
           <div class="p-2">
             <a href="https://www.instagram.com/templatesjungle/" target="_blank" class="d-block insta-frame">
-              <img src="images/ins/WhatsApp Image 2025-07-26 at 13.17.20_92a7da98.jpg" alt="Instagram Image">
+              <img src="images/ins/hand.jpg" alt="Instagram Image">
             </a>
           </div>
         </div>

@@ -194,16 +194,17 @@ a {
 }
 
 .btn {
-  background: var(--bs-primary);
+  background: #966427;
   /* Red button */
   border-radius: 30px;
   padding: 1rem 2rem;
   font-family: var(--bs-body-font-family);
   color: white;
+
 }
 
 .btn:hover {
-  background: var(--bs-link-hover-color);
+  background: #b26931;
 }
 
 /* list group */
@@ -1706,7 +1707,12 @@ footer {
 }
 
 .text-muted {
-  color: #ccc !important;
+  color: #939393 !important;
+  font-size: 14px;
+}
+.fw-bold {
+  font-weight: bold !important;
+  font-size: 12px;
 }
 
 footer .bi {
@@ -1786,6 +1792,7 @@ footer .bi:hover {
   padding: 10px 20px;
   /* font-weight: 600; */
   margin-bottom: 10px;
+  background: #864a0b;
 }
 
 /* who we are  */
@@ -1818,6 +1825,8 @@ footer .bi:hover {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
+  height: 100%;
+  /* make frame use full height */
 }
 
 /* Zig-zag effect: move every 2nd frame down */
@@ -1832,9 +1841,11 @@ footer .bi:hover {
 
 .frame img {
   width: 100%;
-  height: 150px;
+  height: 100%;
+  /* make image take full height of frame */
   object-fit: cover;
-  border-bottom: 1px solid #eee;
+  /* crop nicely instead of stretching */
+  display: block;
 }
 
 .frame .content {
