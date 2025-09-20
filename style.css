@@ -2,14 +2,23 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  scrollbar-width: thin;
+  scrollbar-width: none;
 }
+
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
 
 body {
   --heading-font: "Marcellus", Roboto, sans-serif;
   --heading-font-weight: 400;
   --heading-color: #111;
   --heading-line-height: 1.24;
+
 
   --swiper-theme-color: #8C907E;
 
@@ -1710,6 +1719,7 @@ footer {
   color: #939393 !important;
   font-size: 14px;
 }
+
 .fw-bold {
   font-weight: bold !important;
   font-size: 12px;
@@ -1825,8 +1835,10 @@ footer .bi:hover {
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
-  height: 100%;
-  /* make frame use full height */
+
+  /* Responsive height using aspect ratio */
+  aspect-ratio: 4 / 5;
+  /* width / height */
 }
 
 /* Zig-zag effect: move every 2nd frame down */
@@ -1839,12 +1851,11 @@ footer .bi:hover {
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
+/* Image inside frame */
 .frame img {
   width: 100%;
   height: 100%;
-  /* make image take full height of frame */
   object-fit: cover;
-  /* crop nicely instead of stretching */
   display: block;
 }
 
@@ -1938,9 +1949,11 @@ footer .bi:hover {
 
   .frames {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    height: auto;
+    /* remove fixed height */
   }
 
-  /* Reset transform on smaller screens for better stacking */
+  /* Reset transform on smaller screens */
   .frame:nth-child(2n) {
     transform: translateY(0);
   }

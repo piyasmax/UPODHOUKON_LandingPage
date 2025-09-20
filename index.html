@@ -275,6 +275,9 @@
                 <li class="nav-item">
                   <a class="nav-link text-white" href="index.html#contact-us">Contact</a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link text-white" href="index.html#about">About</a>
+                </li>
               </ul>
             </div>
           </div>
@@ -288,7 +291,7 @@
       <div class="hero-overlay">
         <div class="hero-content">
           <h1>Celebrate Bangali Culture</h1>
-          <a href="#product" class="btn">Shop Now</a>
+          <a href="#" class="btn">Shop Now</a>
         </div>
       </div>
     </section>
@@ -404,7 +407,7 @@
     </div>
   </section>
 
-  <section class="collection bg-light position-relative py-5" data-aos="fade-up">
+  <section id="about" class="collection bg-light position-relative py-5" data-aos="fade-up">
     <div class="container">
       <div class="row">
         <div class="collection-item d-flex flex-wrap my-5">
@@ -527,7 +530,7 @@
     </div>
   </section>
 
-  <div class="section" data-aos="fade-down-right">
+  <div id="weare" class="section" data-aos="fade-down-right">
     <!-- Frames -->
     <div class="frames">
       <div class="frame">
@@ -550,8 +553,7 @@
     </div>
   </div>
 
-  <div class="section" data-aos="fade-down-right">
-
+  <div id="whatwedo" class="section mt-[150px] " data-aos="fade-down-right">
     <!-- Text Section -->
     <div class="text-container" data-aos="fade-up-left">
       <h2>What we do</h2>
@@ -783,10 +785,10 @@
             <h5 class="text-uppercase fw-bold mb-4">Quick Links</h5>
             <ul class="list-unstyled">
               <li class="mb-2"><a href="index.html" class="footer-link">Home</a></li>
-              <li class="mb-2"><a href="index.html" class="footer-link">About</a></li>
-              <li class="mb-2"><a href="blog.html" class="footer-link">Services</a></li>
-              <li class="mb-2"><a href="styles.html" class="footer-link">Single Item</a></li>
-              <li><a href="#contact-us" class="footer-link">Contact</a></li>
+              <li class="mb-2"><a href="index.html#about" class="footer-link">About</a></li>
+              <li class="mb-2"><a href="index.html#weare" class="footer-link">Who we are</a></li>
+              <li class="mb-2"><a href="index.html#whatwedo" class="footer-link">What we do</a></li>
+              <li><a href="index.html#contact-us" class="footer-link">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -968,7 +970,6 @@
       .then(res => res.text())
       .then(data => {
         document.getElementById("pie").innerHTML = data;
-        // Re-initialize Bootstrap components if needed (e.g., for navbar toggle)
         const navbarTogglers = document.querySelectorAll('.navbar-toggler');
         navbarTogglers.forEach(toggler => {
           toggler.addEventListener('click', () => {
@@ -987,8 +988,8 @@
       // Add your images here
       const images = [
         "./images/beautiful-young-woman-wearing-sari.jpg",
-        "./images/bg-newsletter.jpg",
-        "./images/beautiful-young-woman-wearing-sari.jpg",
+        "./images/hero.png",
+        "./images/hero2.png",
       ];
 
       let index = 0;
@@ -996,7 +997,7 @@
       setInterval(() => {
         index = (index + 1) % images.length;
         hero.style.backgroundImage = `url('${images[index]}')`;
-      }, 5000);
+      }, 3000);
     });
   </script>
 
