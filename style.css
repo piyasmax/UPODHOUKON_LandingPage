@@ -165,12 +165,12 @@ a {
 /* Hero */
 .hero {
   position: relative;
-  height: 117vh;
+  height: 100vh;
   width: 100%;
   background-image: url('./images/beautiful-young-woman-wearing-sari.jpg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: top center;
   background-color: #000;
   transition: background-image 1s ease-in-out;
   display: flex;
@@ -178,8 +178,9 @@ a {
   justify-content: center;
   color: white;
   text-align: center;
-  margin-top: 11px;
+  margin-top: 0;
 }
+
 
 .hero-overlay {
   position: absolute;
