@@ -38,7 +38,7 @@
         .bengali {
             top: 10%;
             left: 10%;
-            background: linear-gradient(135deg, #d97706, #f59e0b);
+            background: linear-gradient(135deg, #e57e08, #ce8300);
             rotate: 45deg;
         }
 
@@ -46,16 +46,30 @@
         .western {
             bottom: 10%;
             right: 10%;
-            background: linear-gradient(135deg, #2563eb, #3b82f6);
+            background: linear-gradient(135deg, #ee9a0a, #ffbe1a);
             rotate: 225deg;
         }
 
         /* Arrow Text */
         .arrow-text {
+            /* position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 8px; */
             position: absolute;
             display: flex;
             align-items: center;
             gap: 8px;
+            opacity: 0;
+            /* hidden initially */
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .segment:hover .arrow-text {
+            opacity: 1;
+            /* show on hover */
+            pointer-events: auto;
         }
 
         .arrow-text .line {
@@ -106,6 +120,37 @@
             rotate: 136deg;
             transform: translateY(238%);
         }
+
+        @media (max-width: 480px) {
+            .segment {
+                position: absolute;
+                width: 151px;
+                height: 165px;
+                border-radius: 100% 0 0 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 3rem;
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease;
+                cursor: pointer;
+            }
+
+            .bengali {
+                top: 19%;
+                left: 6%;
+                background: linear-gradient(135deg, #e57e08, #ce8300);
+                rotate: 45deg;
+            }
+
+            .western {
+                bottom: 20%;
+                right: 6%;
+                background: linear-gradient(135deg, #ee9a0a, #ffbe1a);
+                rotate: 225deg;
+            }
+        }
     </style>
 </head>
 
@@ -120,7 +165,14 @@
 
         <!-- Bengali Segment -->
         <div class="segment bengali">
-            <span class="text-6xl rotate-[-45deg]">👘</span>
+            <span class="mt-[30px] sm:mt-[40px] md:mt-[75px] 
+              mr-[20px] sm:mr-[30px] md:mr-[82px] 
+             font-bold 
+             text-xs sm:text-sm md:text-lg lg:text-xl 
+             rotate-[-45deg]">
+                Traditional
+            </span>
+
             <div class="arrow-text">
                 <div class="line"></div>
                 <div class="text">
@@ -132,7 +184,14 @@
 
         <!-- Western Segment -->
         <div class="segment western">
-            <span class="text-6xl rotate-[135deg]">👔</span>
+            <span class="mt-[30px] sm:mt-[45px] md:mt-[75px] 
+         mr-[15px] sm:mr-[25px] md:mr-[42px] 
+         font-bold 
+         text-xs sm:text-sm md:text-lg lg:text-xl 
+         rotate-[135deg]">
+                Western
+            </span>
+
             <div class="arrow-text">
                 <div class="line"></div>
                 <div class="text">
