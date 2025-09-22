@@ -278,6 +278,27 @@
       filter: sepia(1) saturate(13) hue-rotate(15deg);
     }
   </style>
+  <style>
+    .perspective {
+      perspective: 1000px;
+    }
+
+    .backface-hidden {
+      backface-visibility: hidden;
+    }
+
+    .transform-style-preserve-3d {
+      transform-style: preserve-3d;
+    }
+
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
+
+    .group-hover\:rotate-y-180:hover {
+      transform: rotateY(180deg);
+    }
+  </style>
 </head>
 
 <body class="homepage">
@@ -438,53 +459,55 @@
       <!-- Cards -->
       <div class="grid md:grid-cols-2 gap-10">
         <!-- Traditional -->
-        <div
-          class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500">
-          <img src="/images//new/young-indian-woman-wearing-sari_23-2149400840.jpg" alt="Traditional Culture"
-            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
-
-          <!-- Overlay for title -->
-          <div class="absolute inset-0 bg-black/40 transition-all duration-500 flex items-center justify-center">
-            <h3
-              class="text-white text-2xl md:text-3xl font-bold opacity-90 transition-opacity duration-500 group-hover:opacity-0">
-              Traditional
-            </h3>
-          </div>
-
-          <!-- Slide-up description -->
+        <div class="group perspective w-100 mx-auto">
           <div
-            class="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-            <p class="text-sm md:text-base">
-              Traditional culture values heritage, rituals, and long-standing customs passed down through
-              generations.
-              It emphasizes community, family ties, and cultural expressions like music, dance, and
-              clothing.
-            </p>
+            class="relative w-full h-80 rounded-2xl shadow-lg transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+
+            <!-- Front side -->
+            <div class="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden">
+              <img src="images/new/young-indian-woman-wearing-sari_23-2149400840.jpg" alt="Traditional Culture"
+                class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <h3 class="text-white text-2xl md:text-3xl font-bold opacity-90">Traditional</h3>
+              </div>
+            </div>
+
+            <!-- Back side -->
+            <div
+              class="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden bg-yellow-700 text-white p-6 rotate-y-180 flex items-center justify-center">
+              <p class="text-sm md:text-base">
+                Traditional culture values heritage, rituals, and long-standing customs passed down through
+                generations. It emphasizes community, family ties, and cultural expressions like music, dance,
+                and clothing.
+              </p>
+            </div>
+
           </div>
         </div>
         <!-- Western -->
-        <div
-          class="group relative overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transform hover:-translate-y-2 transition-all duration-500">
-          <img src="/images//new/new2.jpg" alt="Traditional Culture"
-            class="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-700">
-
-          <!-- Overlay for title -->
-          <div class="absolute inset-0 bg-black/40 transition-all duration-500 flex items-center justify-center">
-            <h3
-              class="text-white text-2xl md:text-3xl font-bold opacity-90 transition-opacity duration-500 group-hover:opacity-0">
-              Western
-            </h3>
-          </div>
-
-          <!-- Slide-up description -->
+        <div class="group perspective w-100 mx-auto">
           <div
-            class="absolute bottom-0 left-0 right-0 bg-black/70 text-white p-4 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-            <p class="text-sm md:text-base">
-              Traditional culture values heritage, rituals, and long-standing customs passed down through
-              generations.
-              It emphasizes community, family ties, and cultural expressions like music, dance, and
-              clothing.
-            </p>
+            class="relative w-full h-80 rounded-2xl shadow-lg transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+
+            <!-- Front side -->
+            <div class="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden">
+              <img src="images/new/new2.jpg" alt="Traditional Culture"
+                class="w-full h-full object-cover">
+              <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                <h3 class="text-white text-2xl md:text-3xl font-bold opacity-90">Western</h3>
+              </div>
+            </div>
+
+            <!-- Back side -->
+            <div
+              class="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden bg-yellow-700 text-white p-6 rotate-y-180 flex items-center justify-center">
+              <p class="text-sm md:text-base">
+                Traditional culture values heritage, rituals, and long-standing customs passed down through
+                generations. It emphasizes community, family ties, and cultural expressions like music, dance,
+                and clothing.
+              </p>
+            </div>
+
           </div>
         </div>
       </div>
@@ -507,7 +530,7 @@
       </div>
 
       <!-- Process Flow -->
-      <div class="position-relative">
+      <div class="position-relative ">
         <!-- SVG Curved Dashed Line -->
         <svg class="process-line" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 200" preserveAspectRatio="none">
           <path d="M50,100 C250,0 750,200 950,100" stroke="#fc6f6f" stroke-width="2" stroke-dasharray="6,6"
@@ -549,9 +572,9 @@
   </section>
 
   <!-- pie chart -->
-  <section class="pie-section py-5" data-aos="fade-up">
+  <section class="pie-section bg-gradient-to-r from-yellow-50 to-pink-50 mb-5" data-aos="fade-up">
     <div class="container">
-      <div id="pie" class="d-flex justify-content-center align-items-center"></div>
+      <div id="pie" class="d-flex  justify-content-center align-items-center"></div>
     </div>
   </section>
 
@@ -886,7 +909,7 @@
   </section>
 
 
- <!-- footer -->
+  <!-- footer -->
   <footer id="footer" class="mt-5 text-white">
     <div class="container">
       <div class="row d-flex flex-wrap justify-content-between py-5">
