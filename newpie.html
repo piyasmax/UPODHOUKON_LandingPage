@@ -60,16 +60,16 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            opacity:1;
+            opacity: 1;
             /* hidden initially */
             /* pointer-events: none;
             transition: opacity 0.3s ease; */
         }
 
         /* .segment:hover .arrow-text { */
-            /* opacity: 1; */
-            /* show on hover */
-            /* pointer-events: auto; */
+        /* opacity: 1; */
+        /* show on hover */
+        /* pointer-events: auto; */
         /* } */
 
         .arrow-text .line {
@@ -149,6 +149,14 @@
                 right: 6%;
                 background: linear-gradient(135deg, #ee9a0a, #ffbe1a);
                 rotate: 225deg;
+            }
+
+            .western .arrow-text {
+                display: none;
+            }
+
+            .bengali .arrow-text {
+                display: none;
             }
         }
     </style>
